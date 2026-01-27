@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat App UI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <h2>Chats</h2>
+      <button class="add-btn">＋</button>
+    </header>
+
+    <input type="text" class="search-input" placeholder="Caută persoană..." />
+
+    <ul class="chat-list">
+      <li class="chat-item active">
+        <span class="name">Ana</span>
+        <span class="fav">⭐</span>
+      </li>
+      <li class="chat-item">
+        <span class="name">Mihai</span>
+        <span class="fav">☆</span>
+      </li>
+      <li class="chat-item">
+        <span class="name">Ioana</span>
+        <span class="fav">☆</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Chat area -->
+  <main class="chat-area">
+
+    <header class="chat-header">
+      <h3>Ana</h3>
+      <div class="chat-actions">
+        <input type="text" placeholder="Caută în chat..." />
+        <button id="clearChat">🗑</button>
+      </div>
+    </header>
+
+    <section class="messages">
+      <div class="message received">Salut!</div>
+      <div class="message sent">Hei 😊</div>
+      <div class="message received">Ce faci?</div>
+    </section>
+
+    <footer class="chat-input">
+      <input type="text" placeholder="Scrie un mesaj..." />
+      <button>Trimite</button>
+    </footer>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

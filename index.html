@@ -1,61 +1,107 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Chat App UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat UI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="app">
+<div class="chat-app">
 
   <!-- Sidebar -->
   <aside class="sidebar">
-    <header class="sidebar-header">
-      <h2>Chats</h2>
-      <button class="add-btn">＋</button>
-    </header>
+    <div class="sidebar-header">
+      <h2>Chat</h2>
+      <span class="badge">2 New</span>
+    </div>
 
-    <input type="text" class="search-input" placeholder="Caută persoană..." />
+    <div class="search-box">
+      <input type="text" placeholder="Search..." />
+    </div>
 
     <ul class="chat-list">
+      <li class="chat-item">
+        <img src="https://i.pravatar.cc/40?img=1" alt="">
+        <div>
+          <h4>Marvin McKinney</h4>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <span class="time">5m</span>
+      </li>
+
+      <li class="chat-item">
+        <img src="https://i.pravatar.cc/40?img=2" alt="">
+        <div>
+          <h4>Jacob Jones</h4>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <span class="time">5m</span>
+      </li>
+
       <li class="chat-item active">
-        <span class="name">Ana</span>
-        <span class="fav">⭐</span>
+        <img src="https://i.pravatar.cc/40?img=3" alt="">
+        <div>
+          <h4>Leslie Alexander</h4>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <span class="time">5m</span>
       </li>
+
       <li class="chat-item">
-        <span class="name">Mihai</span>
-        <span class="fav">☆</span>
-      </li>
-      <li class="chat-item">
-        <span class="name">Ioana</span>
-        <span class="fav">☆</span>
+        <img src="https://i.pravatar.cc/40?img=4" alt="">
+        <div>
+          <h4>Eleanor Pena</h4>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+        <span class="time">5m</span>
       </li>
     </ul>
   </aside>
 
-  <!-- Chat area -->
+  <!-- Chat Area -->
   <main class="chat-area">
-
     <header class="chat-header">
-      <h3>Ana</h3>
-      <div class="chat-actions">
-        <input type="text" placeholder="Caută în chat..." />
-        <button id="clearChat">🗑</button>
+      <div class="user-info">
+        <img src="https://i.pravatar.cc/40?img=3" alt="">
+        <div>
+          <h3>Leslie Alexander</h3>
+          <span>Web Designer</span>
+        </div>
       </div>
+      <button class="more-btn">⋮</button>
     </header>
 
     <section class="messages">
-      <div class="message received">Salut!</div>
-      <div class="message sent">Hei 😊</div>
-      <div class="message received">Ce faci?</div>
+
+      <div class="date">August 21</div>
+
+      <div class="message received">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <span>10:15 pm</span>
+      </div>
+
+      <div class="message sent">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <span>12:15 pm</span>
+      </div>
+
+      <div class="date">August 22</div>
+
+      <div class="message received audio">
+        <div class="audio-bar">
+          ▶︎ ▮▮▮▮▮▮▮▮▮▮
+        </div>
+        <span>06:00 pm</span>
+      </div>
+
     </section>
 
     <footer class="chat-input">
-      <input type="text" placeholder="Scrie un mesaj..." />
-      <button>Trimite</button>
+      <input type="text" placeholder="Write a message..." />
+      <button class="send-btn">➤</button>
     </footer>
-
   </main>
 
 </div>

@@ -374,7 +374,7 @@ body {
 
 .emoji-picker {
     position: absolute;
-    bottom: 70px; /* Sits above the input area */
+    bottom: 110px; /* Sits above the input area */
     right: 60px;
     background: white;
     border: 1px solid var(--border-light);

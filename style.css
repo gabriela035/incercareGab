@@ -2,6 +2,7 @@
   --bg-main: #e3eee5;
   --bg-white: #ffffff;
   --primary-color: #066229;
+  --primary-color-lighter: #1d9049ce;
   --text-dark: #333333;
   --text-medium: #666666;
   --text-light: #999999;
@@ -24,20 +25,20 @@ body {
   padding: 20px;
 }
 
-/* --- Main Container --- */
+/* --- Big Container --- */
 .app-container {
   display: flex;
   width: 100%;
   max-width: 1200px;
-  height: 90vh; /* Fixed height for the app view */
+  height: 90vh;
   background-color: transparent;
   gap: 20px;
 }
 
-/* Sidebar Style */
+/* Sidebar */
 .sidebar {
   width: 320px;
-  flex-shrink: 0;
+  flex-shrink: 0; /* this way we can prevent the sidebar from shrinking */
   display: flex;
   padding: 20px;
   border-radius: 20px;
@@ -45,7 +46,6 @@ body {
   background-color: #a5daaa;
 }
 
-/* Sidebar Header */
 .sidebar-header h1 {
   color: var(--text-dark);
   font-size: 28px;
@@ -83,7 +83,7 @@ body {
 
 /* Search Bar */
 .search-bar {
-  position: relative;
+  position: relative; /* helper for positioning the icon */
   margin-bottom: 20px;
 }
 
@@ -99,10 +99,10 @@ body {
 }
 
 .search-icon {
-  position: absolute;
+  position: absolute; /* so we can position it inside the input*/
   left: 15px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* translateY is using its own height*/
   color: var(--text-light);
 }
 
@@ -112,6 +112,7 @@ body {
   background-color: var(--bg-main);
   list-style: none;
   padding: 10px;
+  flex-grow: 1; /*this way the container takes all available space*/
   overflow-y: auto;
   scrollbar-color: var(--border-light) transparent;
 }
@@ -136,7 +137,6 @@ body {
 }
 
 .conversation-item.active .contact-name,
-.conversation-item.active .contact-role,
 .conversation-item.active .last-message,
 .conversation-item.active .time {
   color: var(--bg-white);
@@ -192,9 +192,8 @@ body {
   overflow: hidden;
 }
 
-/* Chat Header */
 .chat-header {
-  background-color: var(--bg-white);
+  background-color: var(--primary-color-lighter);
   padding: 15px 25px;
   display: flex;
   align-items: center;
@@ -216,7 +215,7 @@ body {
 
 .active-contact-info h2 {
   font-size: 18px;
-  color: var(--text-dark);
+  color: var(--bg-white);
 }
 
 .active-contact-info span {
@@ -225,7 +224,7 @@ body {
 }
 
 .more-options {
-  color: var(--text-light);
+  color: var(--border-light);
   cursor: pointer;
   background-color: transparent;
   border-style: none;
@@ -314,7 +313,7 @@ body {
   margin-right: 5px;
 }
 
-/* Chat Input Area (Footer) */
+/* Chat Input Area sau Footer-ul */
 .chat-input-area {
   background-color: var(--bg-white);
   padding: 15px;

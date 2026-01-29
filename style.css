@@ -1,8 +1,7 @@
-/* --- CSS Variables & Reset --- */
 :root {
-    --bg-main: #DCEEFF; /* The light blue background of the whole app */
+    --bg-main: #DCEEFF;
     --bg-white: #FFFFFF;
-    --primary-blue: #1A73E8; /* The bright blue for active items and send button */
+    --primary-blue: #1A73E8;
     --text-dark: #333333;
     --text-medium: #666666;
     --text-light: #999999;
@@ -26,28 +25,23 @@ body {
     padding: 20px;
 }
 
-/* --- Main App Container --- */
 .app-container {
     display: flex;
     width: 100%;
     max-width: 1200px;
-    height: 90vh; /* Fixed height for the app view */
+    height: 90vh;
     background-color: transparent;
     gap: 20px;
 }
 
-/* ===========================
-   Sidebar Styles
-   =========================== */
 .sidebar {
     width: 320px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    background-color: transparent; /* Sidebar blends with background in image */
+    background-color: transparent;
 }
 
-/* Sidebar Header */
 .sidebar-header h1 {
     color: var(--text-dark);
     font-size: 28px;
@@ -78,43 +72,15 @@ body {
     cursor: pointer;
 }
 
-/* Search Bar */
-.search-bar {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 12px 15px 12px 45px;
-    border: none;
-    border-radius: 25px;
-    background-color: var(--bg-white);
-    font-size: 14px;
-    color: var(--text-medium);
-    outline: none;
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
-}
-
-/* Conversation List */
 .conversation-list {
     list-style: none;
     overflow-y: auto;
     flex-grow: 1;
-    /* Custom Scrollbar for webkit browsers */
     scrollbar-width: thin;
     scrollbar-color: var(--border-light) transparent;
 }
 .conversation-list::-webkit-scrollbar { width: 6px; }
 .conversation-list::-webkit-scrollbar-thumb { background-color: var(--border-light); border-radius: 3px;}
-
 
 .conversation-item {
     display: flex;
@@ -130,7 +96,6 @@ body {
     background-color: #f5f7fa;
 }
 
-/* Active State Styling */
 .conversation-item.active {
     background-color: var(--primary-blue);
 }
@@ -201,10 +166,6 @@ body {
     text-overflow: ellipsis;
 }
 
-
-/* ===========================
-   Chat Window Styles
-   =========================== */
 .chat-window {
     flex-grow: 1;
     background-color: var(--bg-main);
@@ -214,7 +175,6 @@ body {
     overflow: hidden;
 }
 
-/* Chat Header */
 .chat-header {
     background-color: var(--bg-white);
     padding: 15px 25px;
@@ -251,7 +211,6 @@ body {
     cursor: pointer;
 }
 
-/* Chat Messages Area */
 .chat-messages {
     flex-grow: 1;
     padding: 25px;
@@ -259,15 +218,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-     /* Custom Scrollbar */
-     scrollbar-width: thin;
-     scrollbar-color: var(--border-light) transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-light) transparent;
 }
 .chat-messages::-webkit-scrollbar { width: 6px; }
 .chat-messages::-webkit-scrollbar-thumb { background-color: var(--border-light); border-radius: 3px;}
 
-
-/* Date Divider */
 .date-divider {
     text-align: center;
     position: relative;
@@ -294,7 +250,6 @@ body {
     z-index: 0;
 }
 
-/* Message Groups (General) */
 .message-group {
     display: flex;
     align-items: flex-end;
@@ -305,7 +260,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    margin-bottom: 25px; /* Align with bubble bottom */
+    margin-bottom: 25px;
 }
 
 .message-content {
@@ -327,7 +282,6 @@ body {
     margin-top: 8px;
 }
 
-/* Incoming Messages Specifics */
 .message-group.incoming {
     align-self: flex-start;
 }
@@ -346,11 +300,9 @@ body {
     margin-left: 5px;
 }
 
-
-/* Outgoing Messages Specifics */
 .message-group.outgoing {
     align-self: flex-end;
-    flex-direction: row-reverse; /* Avatar on right */
+    flex-direction: row-reverse;
 }
 
 .message-group.outgoing .message-avatar {
@@ -370,89 +322,17 @@ body {
     margin-right: 5px;
 }
 
-
-/* Audio Message Bubble Styling */
-.audio-bubble {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    width: 300px; /* Fixed width for audio player */
-}
-
-.play-button {
-    background-color: var(--primary-blue);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.waveform-container {
-    flex-grow: 1;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-/* Simulating the waveform bars */
-.waveform-bar {
-    width: 3px;
-    background-color: var(--primary-blue);
-    border-radius: 3px;
-}
-
-/* A fake progress indicator bar */
-.waveform-bar.progress {
-     background-color: var(--primary-blue);
-     position: relative;
-}
-.waveform-bar.progress::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-color: var(--primary-blue);
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-
-.audio-time {
-    font-size: 11px;
-    color: var(--primary-blue);
-    position: absolute;
-    bottom: -18px;
-    left: 0;
-    font-weight: 500;
-}
-
-
-/* Chat Input Area (Footer) */
 .chat-input-area {
     background-color: var(--bg-white);
     padding: 15px;
     border-radius: 20px;
-    margin: 0 25px 25px 25px; /* Spacing from edges */
+    margin: 0 25px 25px 25px;
 }
 
 .input-wrapper {
     display: flex;
     align-items: center;
     background-color: var(--bg-white);
-    /* The design looks like the input area is one big white box, 
-       so we don't need an inner gray box */
 }
 
 .input-wrapper input {
@@ -498,10 +378,9 @@ body {
 
 .send-button .material-icons {
     font-size: 20px;
-    transform: translateX(2px); /* Visual optical adjustment */
+    transform: translateX(2px);
 }
 
-/* Connection Status */
 .connection-status {
     display: flex;
     align-items: center;
@@ -542,7 +421,6 @@ body {
     100% { opacity: 1; }
 }
 
-/* Message Status */
 .message-status {
     font-size: 10px;
     color: #888;
@@ -550,7 +428,6 @@ body {
     font-style: italic;
 }
 
-/* Notification */
 .notification {
     animation: slideIn 0.3s ease-out;
 }

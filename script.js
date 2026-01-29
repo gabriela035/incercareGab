@@ -1,34 +1,69 @@
 const socket = new WebSocket('ws://localhost:8080');
 
-const messageInput = document.querySelector('.chat-input-area input');
+const messageInput = document.querySelector('#message-input');
 const sendButton = document.querySelector('.send-button');
 const chatMessages = document.querySelector('.chat-messages');
+const moreOptionsBtn = document.querySelector('.more-options');
+const emojiBtn = document.querySelector('.action-icon');
+const emojiPicker = document.querySelector('#emoji-picker');
 
-// 1. Send message when button is clicked
+// --- 1. SENDING MESSAGES ---
 sendButton.addEventListener('click', () => {
-  const message = messageInput.value;
-  if (message) {
-    socket.send(message); // Send to server
-    messageInput.value = ''; // Clear input
-  }
+    const message = messageInput.value;
+    if (message) {
+        // We wrap the message in a simple object to label it as "outgoing"
+        const data = { text: message, sender: 'me' };
+        socket.send(JSON.stringify(data)); 
+        
+        displayMessage(message, 'outgoing');
+        messageInput.value = '';
+    }
 });
 
-// 2. Receive message from server and show it
+// --- 2. RECEIVING MESSAGES ---
 socket.onmessage = (event) => {
-  const newMessage = document.createElement('div');
-  
-  // Basic styling using your existing CSS classes
-  newMessage.className = 'message-group incoming'; 
-  newMessage.innerHTML = `
-    <div class="message-content">
-      <div class="message-bubble">
-        <p>${event.data}</p>
-      </div>
-    </div>
-  `;
-  
-  chatMessages.appendChild(newMessage);
-  
-  // Auto-scroll to bottom
-  chatMessages.scrollTop = chatMessages.scrollHeight;
+    const data = JSON.parse(event.data);
+    
+    // Only show the message if it's NOT from "me"
+    if (data.sender !== 'me') {
+        displayMessage(data.text, 'incoming');
+    }
 };
+
+// Helper function to build the chat bubbles
+function displayMessage(text, type) {
+    const newMessage = document.createElement('div');
+    newMessage.className = `message-group ${type}`; 
+    newMessage.innerHTML = `
+        <div class="message-content">
+            <div class="message-bubble">
+                <p>${text}</p>
+            </div>
+        </div>
+    `;
+    chatMessages.appendChild(newMessage);
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll
+}
+
+// --- 3. CLEAR CHAT ---
+moreOptionsBtn.addEventListener('click', () => {
+    if (confirm("Clear all messages?")) {
+        chatMessages.innerHTML = ''; // Wipes the message container
+    }
+});
+
+// --- 4. EMOJI MENU LOGIC ---
+// Toggle menu visibility
+emojiBtn.addEventListener('click', () => {
+    const isHidden = emojiPicker.style.display === 'none';
+    emojiPicker.style.display = isHidden ? 'flex' : 'none';
+});
+
+// Add emoji to input when clicked
+emojiPicker.querySelectorAll('span').forEach(emoji => {
+    emoji.addEventListener('click', () => {
+        messageInput.value += emoji.innerText;
+        emojiPicker.style.display = 'none'; // Close menu after picking
+        messageInput.focus(); // Keep typing
+    });
+});

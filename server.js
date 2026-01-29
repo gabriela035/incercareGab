@@ -6,11 +6,13 @@ const wss = new WebSocketServer({ port: 8080 });
 wss.on('connection', (socket) => {
   console.log('User connected');
 
-  socket.on('message', (data) => {
-    // Broadcast the message to everyone connected
+socket.on('message', (data) => {
+    const messageString = data.toString(); // This is our JSON string
+    
     wss.clients.forEach((client) => {
-      if (client.readyState === 1) { // 1 means OPEN
-        client.send(data.toString());
+      if (client.readyState === 1) {
+        // Send the JSON string to everyone else
+        client.send(messageString);
       }
     });
   });

@@ -1,502 +1,374 @@
-/* --- CSS Variables & Reset --- */
 :root {
-    --bg-main: #DCEEFF; /* The light blue background of the whole app */
-    --bg-white: #FFFFFF;
-    --primary-blue: #1A73E8; /* The bright blue for active items and send button */
-    --text-dark: #333333;
-    --text-medium: #666666;
-    --text-light: #999999;
-    --border-light: #E0E0E0;
-    --incoming-bubble-border: #A0C3FF;
+  --bg-main: #e3eee5;
+  --bg-white: #ffffff;
+  --primary-color: #066229;
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  --border-light: #e0e0e0;
+  --incoming-bubble-border: #8ec291;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-main);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  background-color: var(--bg-main);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* --- Main App Container --- */
+/* --- Main Container --- */
 .app-container {
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    height: 90vh; /* Fixed height for the app view */
-    background-color: transparent;
-    gap: 20px;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh; /* Fixed height for the app view */
+  background-color: transparent;
+  gap: 20px;
 }
 
-/* ===========================
-   Sidebar Styles
-   =========================== */
+/* Sidebar Style */
 .sidebar {
-    width: 320px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent; /* Sidebar blends with background in image */
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  padding: 20px;
+  border-radius: 20px;
+  flex-direction: column;
+  background-color: #a5daaa;
 }
 
 /* Sidebar Header */
 .sidebar-header h1 {
-    color: var(--text-dark);
-    font-size: 28px;
-    margin-bottom: 20px;
+  color: var(--text-dark);
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 .inbox-status {
-    display: flex;
-    align-items: center;
-    color: var(--text-medium);
-    font-weight: 500;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  color: var(--text-medium);
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-.badge {
-    background-color: var(--incoming-bubble-border);
-    color: var(--primary-blue);
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 12px;
-    margin-left: 10px;
-    font-weight: 700;
+.inbox-favs,
+.inbox-main {
+  background-color: var(--incoming-bubble-border);
+  color: var(--primary-color);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border-style: none;
+  margin-right: 10px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .settings-icon {
-    margin-left: auto;
-    color: var(--text-light);
-    cursor: pointer;
+  margin-left: auto;
+  color: var(--text-light);
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
 }
 
 /* Search Bar */
 .search-bar {
-    position: relative;
-    margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
-    width: 100%;
-    padding: 12px 15px 12px 45px;
-    border: none;
-    border-radius: 25px;
-    background-color: var(--bg-white);
-    font-size: 14px;
-    color: var(--text-medium);
-    outline: none;
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--bg-white);
+  font-size: 14px;
+  color: var(--text-medium);
+  outline: none;
 }
 
 .search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
 }
 
 /* Conversation List */
 .conversation-list {
-    list-style: none;
-    overflow-y: auto;
-    flex-grow: 1;
-    /* Custom Scrollbar for webkit browsers */
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-light) transparent;
+  border-radius: 10px;
+  background-color: var(--bg-main);
+  list-style: none;
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-color: var(--border-light) transparent;
 }
-.conversation-list::-webkit-scrollbar { width: 6px; }
-.conversation-list::-webkit-scrollbar-thumb { background-color: var(--border-light); border-radius: 3px;}
-
 
 .conversation-item {
-    display: flex;
-    padding: 15px;
-    background-color: var(--bg-white);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  display: flex;
+  padding: 15px;
+  background-color: var(--bg-white);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .conversation-item:hover {
-    background-color: #f5f7fa;
+  background-color: #d0d3d1;
 }
 
-/* Active State Styling */
+/* Active Convo */
 .conversation-item.active {
-    background-color: var(--primary-blue);
+  background-color: var(--primary-color);
 }
 
 .conversation-item.active .contact-name,
 .conversation-item.active .contact-role,
 .conversation-item.active .last-message,
 .conversation-item.active .time {
-    color: var(--bg-white) !important;
+  color: var(--bg-white);
 }
 
 .avatar-container {
-    position: relative;
-    margin-right: 15px;
+  position: relative;
+  margin-right: 15px;
 }
 
 .avatar-container img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.notification-dot {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    background-color: var(--primary-blue);
-    border: 2px solid var(--bg-white);
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .conversation-info {
-    flex-grow: 1;
-    overflow: hidden;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .contact-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .contact-name {
-    font-weight: 700;
-    color: var(--text-dark);
+  font-weight: 700;
+  color: var(--text-dark);
 }
 
 .time {
-    font-size: 12px;
-    color: var(--text-light);
-}
-
-.contact-role {
-    display: block;
-    font-size: 12px;
-    color: var(--text-medium);
-    margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--text-light);
 }
 
 .last-message {
-    font-size: 13px;
-    color: var(--text-medium);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--text-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-
-/* ===========================
-   Chat Window Styles
-   =========================== */
+/* Chat Window */
 .chat-window {
-    flex-grow: 1;
-    background-color: var(--bg-main);
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* Chat Header */
 .chat-header {
-    background-color: var(--bg-white);
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 20px;
+  background-color: var(--bg-white);
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
 }
 
 .active-contact-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    margin-right: 15px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .active-contact-info h2 {
-    font-size: 18px;
-    color: var(--text-dark);
+  font-size: 18px;
+  color: var(--text-dark);
 }
 
 .active-contact-info span {
-    font-size: 13px;
-    color: var(--text-medium);
+  font-size: 13px;
+  color: var(--text-medium);
 }
 
 .more-options {
-    color: var(--text-light);
-    cursor: pointer;
+  color: var(--text-light);
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
 }
 
-/* Chat Messages Area */
+/* Chatting Area */
 .chat-messages {
-    flex-grow: 1;
-    padding: 25px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-     /* Custom Scrollbar */
-     scrollbar-width: thin;
-     scrollbar-color: var(--border-light) transparent;
-}
-.chat-messages::-webkit-scrollbar { width: 6px; }
-.chat-messages::-webkit-scrollbar-thumb { background-color: var(--border-light); border-radius: 3px;}
-
-
-/* Date Divider */
-.date-divider {
-    text-align: center;
-    position: relative;
-    margin: 10px 0;
+  flex-grow: 1;
+  padding: 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #d5e8d7;
+  border-radius: 20px;
 }
 
-.date-divider span {
-    background-color: var(--bg-main);
-    padding: 0 15px;
-    color: var(--text-light);
-    font-size: 12px;
-    position: relative;
-    z-index: 1;
-}
-
-.date-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--border-light);
-    z-index: 0;
-}
-
-/* Message Groups (General) */
+/* Message (General) */
 .message-group {
-    display: flex;
-    align-items: flex-end;
-    max-width: 80%;
+  display: flex;
+  align-items: flex-end;
+  max-width: 80%;
 }
 
 .message-avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-bottom: 25px; /* Align with bubble bottom */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-bottom: 25px;
 }
 
 .message-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-bubble {
-    padding: 15px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    line-height: 1.5;
-    position: relative;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
 }
 
 .message-time {
-    font-size: 11px;
-    color: var(--text-light);
-    margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 8px;
 }
 
-/* Incoming Messages Specifics */
+/* Incoming Messages */
 .message-group.incoming {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .message-group.incoming .message-avatar {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .message-group.incoming .message-bubble {
-    background-color: var(--bg-white);
-    color: var(--text-dark);
-    border: 2px solid var(--incoming-bubble-border);
-    border-bottom-left-radius: 5px;
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border: 2px solid var(--incoming-bubble-border);
+  border-bottom-left-radius: 5px;
 }
 .message-group.incoming .message-time {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
-
-/* Outgoing Messages Specifics */
+/* Outgoing Messages */
 .message-group.outgoing {
-    align-self: flex-end;
-    flex-direction: row-reverse; /* Avatar on right */
-}
-
-.message-group.outgoing .message-avatar {
-    margin-left: 15px;
+  align-self: flex-end;
+  flex-direction: row;
 }
 
 .message-group.outgoing .message-bubble {
-    background-color: var(--primary-blue);
-    color: var(--bg-white);
-    border-bottom-right-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  border-bottom-right-radius: 5px;
 }
 
 .message-group.outgoing .message-content {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 .message-group.outgoing .message-time {
-    margin-right: 5px;
+  margin-right: 5px;
 }
-
-
-/* Audio Message Bubble Styling */
-.audio-bubble {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    width: 300px; /* Fixed width for audio player */
-}
-
-.play-button {
-    background-color: var(--primary-blue);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    margin-right: 15px;
-    flex-shrink: 0;
-}
-
-.waveform-container {
-    flex-grow: 1;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-/* Simulating the waveform bars */
-.waveform-bar {
-    width: 3px;
-    background-color: var(--primary-blue);
-    border-radius: 3px;
-}
-
-/* A fake progress indicator bar */
-.waveform-bar.progress {
-     background-color: var(--primary-blue);
-     position: relative;
-}
-.waveform-bar.progress::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-color: var(--primary-blue);
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-
-.audio-time {
-    font-size: 11px;
-    color: var(--primary-blue);
-    position: absolute;
-    bottom: -18px;
-    left: 0;
-    font-weight: 500;
-}
-
 
 /* Chat Input Area (Footer) */
 .chat-input-area {
-    background-color: var(--bg-white);
-    padding: 15px;
-    border-radius: 20px;
-    margin: 0 25px 25px 25px; /* Spacing from edges */
+  background-color: var(--bg-white);
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 25px;
 }
 
 .input-wrapper {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-white);
-    /* The design looks like the input area is one big white box, 
-       so we don't need an inner gray box */
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-white);
 }
 
 .input-wrapper input {
-    flex-grow: 1;
-    border: none;
-    font-size: 15px;
-    outline: none;
-    color: var(--text-dark);
-    padding-right: 15px;
+  flex-grow: 1;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  color: var(--text-dark);
+  padding-right: 15px;
 }
 .input-wrapper input::placeholder {
-     color: var(--text-light);
+  color: var(--text-light);
 }
 
 .input-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .action-icon {
-    color: var(--text-light);
-    cursor: pointer;
-    font-size: 22px;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 22px;
 }
 
 .send-button {
-    background-color: var(--primary-blue);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  background-color: var(--primary-color);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 .send-button:hover {
-    background-color: #155ab5;
+  background-color: #033315;
 }
 
 .send-button .material-icons {
-    font-size: 20px;
-    transform: translateX(2px); /* Visual optical adjustment */
+  font-size: 20px;
 }

@@ -1,202 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App UI Design</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App Design</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
+  <body>
     <div class="app-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h1>Chat</h1>
-                <div class="inbox-status">
-                    <span>Inbox</span>
-                    <span class="badge">2 New</span>
-                    <span class="material-icons settings-icon">settings</span>
-                </div>
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>Chat</h1>
+          <div class="inbox-status">
+            <button class="inbox-main">Inbox</button>
+            <button class="inbox-favs">Favourites</button>
+            <button class="material-icons settings-icon">settings</button>
+          </div>
+        </div>
+
+        <div class="search-bar">
+          <span class="material-icons search-icon">search</span>
+          <input type="text" placeholder="Search..." />
+        </div>
+
+        <ul class="conversation-list">
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img
+                src="https://i.pravatar.cc/150?img=1"
+                alt="Marvin McKinney"
+              />
             </div>
-
-            <div class="search-bar">
-                <span class="material-icons search-icon">search</span>
-                <input type="text" placeholder="Search...">
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Marvin McKinney</span>
+                <span class="time">5m</span>
+              </div>
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
             </div>
+          </li>
 
-            <ul class="conversation-list">
-                <li class="conversation-item">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="Marvin McKinney">
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Marvin McKinney</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Nursing Assistant</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-                
-                <li class="conversation-item unread">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="Jacob Jones">
-                        <span class="notification-dot"></span>
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Jacob Jones</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Marketing Coordinator</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-
-                <li class="conversation-item active">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="Leslie Alexander">
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Leslie Alexander</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Web Designer</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-
-                <li class="conversation-item">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena">
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Eleanor Pena</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Dog Trainer</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-
-                 <li class="conversation-item">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=5" alt="Kathryn Murphy">
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Kathryn Murphy</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Medical Assistant</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-
-                 <li class="conversation-item">
-                    <div class="avatar-container">
-                        <img src="https://i.pravatar.cc/150?img=6" alt="Wade Warren">
-                    </div>
-                    <div class="conversation-info">
-                        <div class="contact-top">
-                            <span class="contact-name">Wade Warren</span>
-                            <span class="time">5m</span>
-                        </div>
-                        <span class="contact-role">Web Designer</span>
-                        <p class="last-message">Lorem ipsum dolor sit amet</p>
-                    </div>
-                </li>
-            </ul>
-        </aside>
-
-        <main class="chat-window">
-            <header class="chat-header">
-                <div class="active-contact-info">
-                    <img src="https://i.pravatar.cc/150?img=3" alt="Leslie Alexander" class="header-avatar">
-                    <div>
-                        <h2>Leslie Alexander</h2>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
-                <span class="material-icons more-options">more_vert</span>
-            </header>
-
-            <div class="chat-messages">
-                <div class="date-divider"><span>August 21</span></div>
-
-                <div class="message-group incoming">
-                    <img src="https://i.pravatar.cc/150?img=3" alt="Leslie" class="message-avatar">
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor mollis leo proin turpis eu hac. Tortor dolor eu at bibendum suspendisse. Feugiat mi eu, rhoncus diam consectetur libero morbi pharetra. Id tristique mi eget eget tristique orci.</p>
-                        </div>
-                        <span class="message-time">10:15 pm</span>
-                    </div>
-                </div>
-
-                 <div class="message-group outgoing">
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor mollis leo proin turpis eu hac. Tortor dolor eu at bibendum suspendisse.</p>
-                        </div>
-                        <span class="message-time">12:15 pm</span>
-                    </div>
-                    <img src="https://i.pravatar.cc/150?img=8" alt="Me" class="message-avatar">
-                </div>
-
-                <div class="date-divider"><span>August 22</span></div>
-
-                 <div class="message-group incoming">
-                    <img src="https://i.pravatar.cc/150?img=3" alt="Leslie" class="message-avatar">
-                    <div class="message-content">
-                        <div class="message-bubble audio-bubble">
-                            <button class="play-button">
-                                <span class="material-icons">play_arrow</span>
-                            </button>
-                            <div class="waveform-container">
-                                <div class="waveform-bar" style="height: 20%;"></div>
-                                <div class="waveform-bar" style="height: 40%;"></div>
-                                <div class="waveform-bar" style="height: 60%;"></div>
-                                <div class="waveform-bar" style="height: 30%;"></div>
-                                <div class="waveform-bar" style="height: 80%;"></div>
-                                <div class="waveform-bar" style="height: 50%;"></div>
-                                <div class="waveform-bar" style="height: 90%;"></div>
-                                <div class="waveform-bar" style="height: 40%;"></div>
-                                <div class="waveform-bar" style="height: 60%;"></div>
-                                <div class="waveform-bar progress" style="height: 70%;"></div> <div class="waveform-bar" style="height: 30%; opacity: 0.5"></div>
-                                <div class="waveform-bar" style="height: 50%; opacity: 0.5"></div>
-                                <div class="waveform-bar" style="height: 20%; opacity: 0.5"></div>
-                                <div class="waveform-bar" style="height: 60%; opacity: 0.5"></div>
-                                <div class="waveform-bar" style="height: 40%; opacity: 0.5"></div>
-                                
-                                <span class="audio-time">0:56</span>
-                            </div>
-                        </div>
-                        <span class="message-time">06:00 pm</span>
-                    </div>
-                </div>
+          <li class="conversation-item unread">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=2" alt="Jacob Jones" />
             </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Jacob Jones</span>
+                <span class="time">5m</span>
+              </div>
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
 
-            <footer class="chat-input-area">
-                <div class="input-wrapper">
-                    <input type="text" placeholder="Write a message...">
-                    <div class="input-actions">
-                        <span class="material-icons action-icon">attach_file</span>
-                        <span class="material-icons action-icon">sentiment_satisfied_alt</span>
-                        <button class="send-button">
-                            <span class="material-icons">send</span>
-                        </button>
-                    </div>
-                </div>
-            </footer>
-        </main>
+          <li class="conversation-item active">
+            <div class="avatar-container">
+              <img
+                src="https://i.pravatar.cc/150?img=3"
+                alt="Leslie Alexander"
+              />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Leslie Alexander</span>
+                <span class="time">5m</span>
+              </div>
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Eleanor Pena</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=5" alt="Kathryn Murphy" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Kathryn Murphy</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=6" alt="Wade Warren" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Wade Warren</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Eleanor Pena</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Eleanor Pena</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Eleanor Pena</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+
+          <li class="conversation-item">
+            <div class="avatar-container">
+              <img src="https://i.pravatar.cc/150?img=4" alt="Eleanor Pena" />
+            </div>
+            <div class="conversation-info">
+              <div class="contact-top">
+                <span class="contact-name">Eleanor Pena</span>
+                <span class="time">5m</span>
+              </div>
+
+              <p class="last-message">Lorem ipsum dolor sit amet</p>
+            </div>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="chat-window">
+        <header class="chat-header">
+          <div class="active-contact-info">
+            <img
+              src="https://i.pravatar.cc/150?img=3"
+              alt="Leslie Alexander"
+              class="header-avatar"
+            />
+
+            <h2>Leslie Alexander</h2>
+          </div>
+          <button class="material-icons more-options">more_vert</button>
+        </header>
+
+        <div class="chat-messages">
+          <div class="message-group incoming">
+            <img
+              src="https://i.pravatar.cc/150?img=3"
+              alt="Leslie"
+              class="message-avatar"
+            />
+            <div class="message-content">
+              <div class="message-bubble">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor
+                  mollis leo proin turpis eu hac. Tortor dolor eu at bibendum
+                  suspendisse. Feugiat mi eu, rhoncus diam consectetur libero
+                  morbi pharetra. Id tristique mi eget eget tristique orci.
+                </p>
+              </div>
+              <span class="message-time">11:11 pm</span>
+            </div>
+          </div>
+
+          <div class="message-group outgoing">
+            <div class="message-content">
+              <div class="message-bubble">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor
+                  mollis leo proin turpis eu hac. Tortor dolor eu at bibendum
+                  suspendisse.
+                </p>
+              </div>
+              <span class="message-time">12:15 pm</span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="chat-input-area">
+          <div class="input-wrapper">
+            <input type="text" placeholder="Write a message..." />
+            <div class="input-actions">
+              <span class="material-icons action-icon"
+                >sentiment_satisfied_alt</span
+              >
+              <button class="send-button">
+                <span class="material-icons">send</span>
+              </button>
+            </div>
+          </div>
+        </footer>
+      </main>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

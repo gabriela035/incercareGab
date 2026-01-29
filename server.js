@@ -1,21 +1,20 @@
 const { WebSocketServer } = require('ws');
-
-// Start the server on port 8080
 const wss = new WebSocketServer({ port: 8080 });
 
 wss.on('connection', (socket) => {
   console.log('User connected');
 
-socket.on('message', (data) => {
-    const messageString = data.toString(); // This is our JSON string
+  socket.on('message', (data) => {
+    // We receive the JSON string from one tab
+    const messagePayload = data.toString();
     
+    // We broadcast it to EVERYONE (including the sender)
     wss.clients.forEach((client) => {
       if (client.readyState === 1) {
-        // Send the JSON string to everyone else
-        client.send(messageString);
+        client.send(messagePayload);
       }
     });
   });
 });
 
-console.log('WebSocket server is running on ws://localhost:8080');
+console.log('Server running on ws://localhost:8080');
